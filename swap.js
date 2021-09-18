@@ -16,16 +16,16 @@ b = temp //5
 
 console.log(a,b)
 
-// let x = prompt('Enter x:')
-// let y = prompt('Enter y:')
+let x = 5
+let y = 6
 
-// console.log(x,y)
+console.log(x,y)
 
 const array = [34, 'avd', 'a', true, 2.45] // array
 
-// let i =  [x, y] = [y, x]
+let i =  [x, y] = [y, x]
 
-// console.log(i)
+console.log(x, y)
 
 let j = 3;
 let k = 7;
