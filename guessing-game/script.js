@@ -22,7 +22,7 @@ const GuessingGame = () => {
     let result;
     console.log(guess)
     console.log(randomNumber)
-    if (randomNumber === guess) {
+    if (randomNumber == guess) {
         result = "You Won";
         isWin = true;
     } else if ( randomNumber < guess ) {
