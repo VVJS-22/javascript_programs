@@ -3,6 +3,8 @@
 const rock = document.querySelector("#rock")
 const paper = document.querySelector("#paper")
 const scissors = document.querySelector("#scissors")
+const mainDiv = document.querySelector("main")
+const Reset = document.querySelector("button")
 
 // =========== Html tags declaration ================//
 
@@ -32,6 +34,12 @@ const scoreDatabase = {
     "scissors" : {
         "rock": 0, "paper": 1, "scissors": 0.5  
     },
+}
+
+const imageDatabase = {
+    "rock": rock.src,
+    "paper": paper.src,
+    "scissors": scissors.src
 }
 
 // =========== Database ================//
@@ -77,14 +85,28 @@ const RemoveImages = () => {
     scissors.remove()
 }
 
+const FrontEnd  = (yourChoice, botChoice, finalMessage) => {
+    mainDiv.innerHTML = `
+        <img src="${imageDatabase[yourChoice]}" alt="${yourChoice}" />
+        <h2 style="color:${finalMessage['color']}">${finalMessage['message']}</h2>
+        <img src="${imageDatabase[botChoice]}" alt="${botChoice}" />
+    `
+}
+
+
+
+
 const RpsGame = (choice) => {
     const yourChoice = choice.id;
     const botChoice = BotSelection();
     const gameScore = Score(yourChoice, botChoice);
     const finalMessage = GameMessage(gameScore);
-    console.log(yourChoice, botChoice, gameScore,finalMessage)
+    // console.log(yourChoice, botChoice, gameScore,finalMessage)
     RemoveImages() 
+    FrontEnd(yourChoice, botChoice, finalMessage)
+    Reset.style.display = "block"
 }
+
 
 // ============= Main game ============== //
 
