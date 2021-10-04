@@ -34,9 +34,11 @@
 // console.log(student.result())
 
 
-function Person (name = "Sasi", age = 22) {
-    this.name = name,
-    this.age = age
+class Person {
+    constructor(name = "Sasi", age = 22) {
+        this.name = name,
+            this.age = age
+    }
 }
 
 const person = new Person()
@@ -56,9 +58,11 @@ s2 = {
     class: 8
 }
 
-function Student (name, age) {
-    this.name = name,
-    this.class = age
+class Student {
+    constructor(name, age) {
+        this.name = name,
+            this.class = age
+    }
 }
 
 const s1 = new Student("jai", 12)

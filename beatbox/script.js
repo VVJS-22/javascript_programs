@@ -1,3 +1,9 @@
+// ======================== imports =====================
+
+const Buttons = document.querySelectorAll('button')
+
+// ======================== imports =====================
+
 const beats = {
     "65": {
         beat: new Beat("./assets/Piano Chord 331.mp3"),
@@ -38,9 +44,31 @@ const beats = {
 }
 
 const TriggerBeat = (event) => {
-    const keyCode = event
-    console.log(keyCode)
+    const keyCode = event.keyCode
+
+    if (keyCode in beats) {
+        const keyPress = beats[keyCode]
+        keyPress.beat.play()
+        keyPress.button.select()
+        setTimeout( 
+            () => {
+                keyPress.button.deselect()
+            }, 100
+        )
+    }
 }
 
+Buttons.forEach(button => button.addEventListener("click",
+    () => {
+        const keyPress = beats[button.id]
+        keyPress.beat.play()
+        keyPress.button.select()
+        setTimeout( 
+            () => {
+                keyPress.button.deselect()
+            }, 100
+        )
+    }
+))
 
 document.addEventListener('keydown', TriggerBeat)
